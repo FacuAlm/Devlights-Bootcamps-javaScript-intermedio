@@ -298,4 +298,4 @@ let user = {
     return userObj.data.friends;
   }
   
-  console.log(addFriend(user, 'Pete'));
+  console.log(addFriend(user, 'Facu'));
