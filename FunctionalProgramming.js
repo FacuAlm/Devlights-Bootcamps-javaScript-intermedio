@@ -247,16 +247,20 @@ const ratings = watchList.map((pelicula) => ({
 console.log(JSON.stringify(ratings));
 
 //8. Implement map on a Prototype
+
 Array.prototype.myMap = function (callback) {
   var newArray = [];
-  // Only change code below this line
-  this.forEach((item) => {
-    newArray.push(callback(item));
+
+  this.forEach((item, index) => {
+    newArray.push(callback(item, index, this));
   });
+
   return newArray;
 };
-let arreglo = [23, 65, 98, 5];
-let arregloMultiplicado = arreglo.myMap((item) => item * 2);
+
+var nuevoArreglo = s.myMap(function (item) {
+  return item * 2;
+});
 
 //9. Use the filter Method to Extract Data from an Array
 
@@ -507,12 +511,8 @@ console.log(sentensify("May-the-force-be-with-you"));
 //21.Apply Functional Programming to Convert Strings to URL Slugs
 
 const urlSlug = (title) => {
-  return title
-    .trim()
-    .toLowerCase()
-    .split(/\s+/)
-    .join("-");
-}
+  return title.trim().toLowerCase().split(/\s+/).join("-");
+};
 
 console.log(urlSlug(" Winter Is  Coming"));
 
@@ -543,7 +543,3 @@ function add(x) {
 }
 
 console.log(add(10)(20)(30));
-
-
-
-
